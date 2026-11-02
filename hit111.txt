@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Management System - Sign Up</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px 12px;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #e8f5f1;
+      color: #1f2d2a;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    header { text-align: center; margin-bottom: 24px; }
+    header h1 { margin: 0; color: #0f766e; font-size: 26px; }
+    header p { margin: 6px 0 0; color: #5b6b67; }
+
+    fieldset {
+      border: 1px solid #cfe3de;
+      border-radius: 8px;
+      padding: 16px 18px 6px;
+      margin-bottom: 20px;
+    }
+
+    legend { padding: 0 8px; font-weight: 600; color: #0f766e; }
+
+    .row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .field { flex: 1 1 240px; margin-bottom: 14px; }
+
+    label { display: block; margin-bottom: 5px; font-size: 14px; font-weight: 500; }
+    .req { color: #c0392b; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #b7cfc9;
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
+    }
+
+    .radio-group label,
+    .terms label {
+      display: inline;
+      margin-right: 14px;
+      font-weight: 400;
+    }
+
+    .terms { margin-bottom: 20px; font-size: 14px; }
+
+    #msg { color: #c0392b; font-size: 13px; min-height: 18px; margin: 0 0 10px; }
+
+    .buttons { display: flex; gap: 12px; }
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-primary { background: #0f766e; color: #fff; }
+    .btn-primary:hover { background: #0c5f58; }
+    .btn-secondary { background: #e2ece9; color: #1f2d2a; }
+    .btn-secondary:hover { background: #d3e2de; }
+
+    .login-link { text-align: center; margin: 18px 0 0; font-size: 14px; }
+    .login-link a { color: #0f766e; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>💊 Pharmacy Management System</h1>
+      <p>Create your account</p>
+    </header>
+
+    <form id="signupForm" action="#" method="post">
+
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <div class="field">
+          <label for="fullname">Full Name <span class="req">*</span></label>
+          <input type="text" id="fullname" name="fullname" placeholder="e.g. Rahul Sharma" required>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number"
+                   pattern="[0-9]{10}" title="Enter a 10-digit phone number" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+          </div>
+          <div class="field radio-group">
+            <label>Gender</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Professional Details</legend>
+
+        <div class="row">
+          <div class="field">
+            <label for="role">Role <span class="req">*</span></label>
+            <select id="role" name="role" required>
+              <option value="">-- Select Role --</option>
+              <option value="admin">Admin</option>
+              <option value="pharmacist">Pharmacist</option>
+              <option value="cashier">Cashier</option>
+              <option value="inventory">Inventory Manager</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="license">Pharmacy License No.</label>
+            <input type="text" id="license" name="license" placeholder="e.g. PB-12345">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="pharmacy">Pharmacy Name <span class="req">*</span></label>
+          <input type="text" id="pharmacy" name="pharmacy" required>
+        </div>
+
+        <div class="field">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Account Details</legend>
+
+        <div class="field">
+          <label for="username">Username <span class="req">*</span></label>
+          <input type="text" id="username" name="username" minlength="4" required>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="password">Password <span class="req">*</span></label>
+            <input type="password" id="password" name="password" minlength="8" required>
+          </div>
+          <div class="field">
+            <label for="confirm">Confirm Password <span class="req">*</span></label>
+            <input type="password" id="confirm" name="confirm" minlength="8" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="terms">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the Terms and Conditions</label>
+      </div>
+
+      <p id="msg"></p>
+
+      <div class="buttons">
+        <button type="submit" class="btn-primary">Sign Up</button>
+        <button type="reset" class="btn-secondary">Reset</button>
+      </div>
+
+      <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      var pass = document.getElementById("password").value;
+      var confirm = document.getElementById("confirm").value;
+      var msg = document.getElementById("msg");
+
+      if (pass !== confirm) {
+        e.preventDefault();
+        msg.textContent = "Passwords do not match. Please try again.";
+      } else {
+        msg.textContent = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
